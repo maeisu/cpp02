@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
 
 class Fixed {
     private:
@@ -12,10 +13,15 @@ class Fixed {
         Fixed(const int value);
 		Fixed(const float value);
 		Fixed(const Fixed &source);
+		Fixed();
 		~Fixed();
 		Fixed& operator=(const Fixed &source);
 		float toFloat(void) const;
 		int toInt(void)const;
+		int getRawBits(void) const;
+		void setRawBits( int const raw );
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif
